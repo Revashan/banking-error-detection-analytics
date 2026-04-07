@@ -19,7 +19,7 @@ The goal is to identify **unusual transaction patterns**, **potential fraud**, a
 
 ---
 
-## 📂 Dataset
+##  Dataset
 
 * Source: Kaggle
 * Dataset: **PaySim Financial Dataset**
@@ -56,7 +56,7 @@ CSV → Python (EDA + Cleaning) → Feature Engineering → ML Model → SQL →
 
 ---
 
-## ⚙️ Feature Engineering
+##  Feature Engineering
 
 Created new features to detect operational issues:
 
@@ -74,7 +74,7 @@ Created new features to detect operational issues:
 
 ---
 
-## 📊 Exploratory Data Analysis (EDA)
+##  Exploratory Data Analysis (EDA)
 
 Performed analysis on:
 
@@ -85,7 +85,7 @@ Performed analysis on:
 * High-risk transaction patterns
 
 ---
-## 📈 Model Evaluation
+##  Model Evaluation
 
 Metrics used:
 
@@ -97,7 +97,7 @@ Metrics used:
 
 ---
 
-## 📊 Power BI Dashboard
+## Power BI Dashboard
 
 ### Key KPIs:
 
@@ -129,7 +129,7 @@ Metrics used:
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 * Dataset is **simulated**, not real banking data
 * Limited contextual information (no customer profile)
@@ -146,7 +146,7 @@ Metrics used:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * Python (Pandas, NumPy)
 * Scikit-learn
