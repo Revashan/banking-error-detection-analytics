@@ -10,10 +10,11 @@ Objectives:
 - Provide root cause insights
 
 Technologies:
-Python
-SQL
-Power BI
-Machine Learning
+Python (Pandas, Matplotlib, Seaborn)
+SQL (SQLite / PostgreSQL compatible queries)
+Power BI for business dashboards
+Jupyter Notebook for analysis
+GitHub for version control
 
 Dataset:
 PaySim Financial Dataset (Kaggle)
