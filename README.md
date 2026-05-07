@@ -82,9 +82,9 @@ banking_error_detection_project/
 ├── python/
 │   └── banking_error_analysis.py
 ├── powerbi/
-│   └── banking-error-exec-dash.pxib
+│   └── banking-error-exec-dashboard.pxib
 ├── screenshots/
-│   ├── Banking-error-exec-dash.png
+│   ├── Banking-error-exec-dashboard.png
 └── README.md
 ```
 
@@ -263,8 +263,6 @@ Open the files in the `screenshots/` folder:
 - `monthly_error_rate_trend.png`
 - `error_rate_by_channel.png`
 - `top_error_types.png`
-
-These are mock screenshots generated from the dataset to guide your Power BI dashboard layout.
 
 ---
 
