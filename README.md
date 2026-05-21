@@ -7,13 +7,13 @@ End-to-end banking operations analytics project focused on detecting, analysing,
 ```
 ├── data/
 │   ├── raw/
-│   │   ├── banking_transactions_raw.csv   # Raw transaction data (75,220 rows)
-│   │   ├── customers.csv                  # Customer dimension (8,000 records)
-│   │   ├── accounts.csv                   # Account dimension (10,000 records)
-│   │   └── branches.csv                   # Branch/region dimension (80 records)
+│   │   ├── banking_transactions_raw.csv   
+│   │   ├── customers.csv                  
+│   │   ├── accounts.csv                   
+│   │   └── branches.csv                   
 │   └── processed/
-│       ├── banking_error_detection_model.csv  # Cleaned analytics dataset (75,000 rows)
-│       └── kpi_summary.csv                    # Executive KPI summary
+│       ├── banking_error_detection_model.csv  
+│       └── kpi_summary.csv                    
 ├── sql/
 │   ├── 01_create_tables.sql
 │   ├── 02_data_cleaning.sql
@@ -46,7 +46,6 @@ Synthetic but realistic banking operations data.
 | `branches.csv` | Branch and region dimension | 80 |
 | `banking_error_detection_model.csv` | Cleaned and enriched dataset | 75,000 |
 
-Key columns: `transaction_id`, `channel`, `transaction_type`, `posting_status`, `is_error`, `error_type`, `error_severity`, `root_cause`, `case_status`, `refund_amount`, `resolution_hours`, `sla_breached`, `customer_segment`, `risk_rating`
 
 ## Key KPIs
 
