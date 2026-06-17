@@ -1,101 +1,185 @@
 # Banking Transaction Error Detection Analytics
 
-End-to-end banking operations analytics project focused on detecting, analysing, and reporting transaction posting errors — built with SQL, Python, and Power BI.
+An end-to-end **banking operations analytics** project focused on identifying transaction posting errors, SLA breaches, refund exposure, and operational risk across banking channels.
 
-## Project Structure
+This project is designed to reflect a real-world reporting use case where Operations, Risk, and Customer Service teams need a reliable dashboard to monitor failed, duplicated, reversed, or wrongly posted transactions.
 
-```
-├── data/
-│   ├── raw/
-│   │   ├── banking_transactions_raw.csv   
-│   │   ├── customers.csv                  
-│   │   ├── accounts.csv                   
-│   │   └── branches.csv                   
-│   └── processed/
-│       ├── banking_error_detection_model.csv  
-│       └── kpi_summary.csv                    
-├── sql/
-│   ├── 01_create_tables.sql
-│   ├── 02_data_cleaning.sql
-│   └── 03_analysis_queries.sql
-├── powerbi/
-│   └── Banking-error-exec-dashboard.png
-├── screenshots/
-└── README.md
-```
+---
 
 ## Business Problem
 
-Banks process thousands of transactions daily across channels like Mobile, Internet Banking, ATM, POS, Branch, and API. Some transactions fail, post incorrectly, duplicate, or reverse late — creating customer refund exposure and operational risk.
+Banks process thousands of transactions every day through Mobile Banking, Internet Banking, ATM, POS, Branch, and API channels. Some transactions fail, get duplicated, are reversed late, or are posted incorrectly.
 
-This project helps banking operations teams answer:
-- Which channels and transaction types generate the most errors?
-- What is the total refund exposure from unresolved cases?
-- Where are SLA breaches concentrated?
-- Which root causes drive the highest financial impact?
+These issues create:
+
+- Customer complaints
+- Refund exposure
+- SLA breaches
+- Operational backlog
+- Reconciliation effort
+- Regulatory and reputational risk
+
+The goal of this project is to help banking operations teams identify where transaction errors are happening, how much financial exposure exists, and which cases should be prioritised for resolution.
+
+---
+
+## Business Questions Answered
+
+1. Which channels generate the highest transaction error rate?
+2. Which transaction types create the largest refund exposure?
+3. What root causes drive most operational errors?
+4. Which cases are breaching SLA?
+5. Which branches, regions, or customer segments are most impacted?
+6. Which high-value transactions need urgent review?
+7. How can operations teams reduce repeat errors?
+
+---
 
 ## Dataset
 
-Synthetic but realistic banking operations data.
+This project uses a **synthetic but realistic banking operations dataset** created for portfolio and learning purposes.
 
-| File | Description | Rows |
-|---|---|---|
-| `banking_transactions_raw.csv` | Raw transaction data with duplicates | 75,220 |
-| `customers.csv` | Customer profiles | 8,000 |
-| `accounts.csv` | Account dimension | 10,000 |
-| `branches.csv` | Branch and region dimension | 80 |
-| `banking_error_detection_model.csv` | Cleaned and enriched dataset | 75,000 |
+| File | Description |
+|---|---|
+| `banking_transactions_raw.csv` | Raw transaction records with success/error status, channel, transaction type, amount, SLA, and root cause |
+| `customers.csv` | Customer profile and segment information |
+| `accounts.csv` | Account-level dimension data |
+| `branches.csv` | Branch and region mapping |
+| `banking_error_detection_model.csv` | Cleaned and enriched dataset for analytics and dashboarding |
+| `kpi_summary.csv` | Final KPI summary used for reporting validation |
 
+---
+
+## Tools Used
+
+- **SQL**: data validation, KPI queries, analysis queries
+- **Python**: data cleaning, feature engineering, EDA, KPI generation
+- **Power BI**: executive dashboard, SLA reporting, operational risk visualisation
+- **DAX**: calculated measures for error rate, SLA breach rate, refund exposure, and resolution time
+
+---
+
+## Project Workflow
+
+```text
+Raw Data
+   ↓
+Python Cleaning & Feature Engineering
+   ↓
+SQL Validation and Analysis Queries
+   ↓
+Processed Dataset
+   ↓
+Power BI Data Model
+   ↓
+Executive Dashboard
+   ↓
+Insights and Business Recommendations
+```
+
+---
 
 ## Key KPIs
 
-| KPI | Value |
+| KPI | Business Meaning |
 |---|---|
-| Total Transactions | 75,000 |
-| Total Error Cases | 4,861 |
-| Error Rate | 6.48% |
-| Total Refund Exposure | MYR 842,405.56 |
-| Average Resolution Hours | 22.59 |
-| SLA Breach Rate | 35.96% |
+| Total Transactions | Total transaction volume processed |
+| Total Error Cases | Count of failed, duplicated, reversed-late, or wrongly posted transactions |
+| Error Rate % | Error cases divided by total transactions |
+| Total Refund Exposure | Financial value exposed due to unresolved transaction errors |
+| Average Resolution Hours | Average time taken to close error cases |
+| SLA Breach Rate % | Percentage of error cases resolved after agreed SLA |
+| High-Value Error Cases | Error transactions above the high-value threshold |
+| Open Error Cases | Unresolved transaction issues requiring operations action |
 
-## Stack
-
-- Python — data cleaning, EDA, KPI generation, Random Forest error likelihood model
-- SQL — schema creation, data cleaning, dashboard-ready analysis queries
-- Power BI — executive dashboards with DAX measures
+---
 
 ## Power BI Dashboard
 
-![Banking Error Detection Executive Dashboard](https://raw.githubusercontent.com/Revashan/banking-error-detection-analytics/main/powerbi/Banking-error-exec-dashboard.png)
+> Important: The screenshots below should be exported from the actual Power BI `.pbix` file after connecting to the processed dataset. Do not use mocked dashboard images.
 
-Dashboard pages:
-- Executive Overview — operational risk summary, error rate, refund exposure
-- Error Investigation — error patterns by type, channel, and root cause
-- Operational SLA — SLA breach tracking by severity and team
-- Customer & Segment Risk — customer impact concentration by segment
+### 1. Executive Overview
 
-DAX measures and visual guide available in `powerbi/powerbi_dax_and_visual_guide.md`.
+![Executive Overview](powerbi/screenshots/01_executive_overview.png)
 
-## Getting Started
+Recommended visuals:
 
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn pyarrow jupyter
+- KPI cards: Total Transactions, Error Cases, Error Rate %, Refund Exposure, SLA Breach Rate %
+- Monthly transaction error trend
+- Error rate by channel
+- Refund exposure by transaction type
+- Top root causes
+- Open vs closed cases
 
-# Run the Python pipeline
-python src/banking_error_analysis.py
-```
+### 2. Error Investigation
 
-For SQL: run scripts in order — `01_create_tables.sql` → `02_data_cleaning.sql` → `03_analysis_queries.sql`.
+![Error Investigation](powerbi/screenshots/02_error_investigation.png)
 
-Open the `.pbix` file in Power BI Desktop and connect to `data/processed/banking_error_detection_model.csv`.
+Recommended visuals:
+
+- Error cases by root cause
+- Error amount by transaction type
+- Error cases by branch and region
+- Customer segment impacted
+- High-value error transaction table
+
+### 3. SLA and Operations Performance
+
+![SLA Operations](powerbi/screenshots/03_sla_operations.png)
+
+Recommended visuals:
+
+- SLA breach trend
+- Average resolution hours by channel
+- SLA breach by severity
+- Oldest pending cases
+- Operations backlog by team or branch
+
+### 4. Business Recommendation Page
+
+![Business Recommendations](powerbi/screenshots/04_business_recommendations.png)
+
+Recommended visuals:
+
+- Key insights summary
+- Priority actions
+- Owner / action / expected impact table
+
+---
 
 ## Key Insights
 
-- API and POS channels carry higher operational risk due to external integration complexity
-- Duplicate debit, failed reversal, and wrong beneficiary errors have the highest customer impact
-- SLA breach rate should be tracked alongside severity — a small number of critical cases can drive outsized business impact
-- High-value transaction errors (above MYR 10,000) warrant daily review by operations teams
+1. **API and POS channels require closer monitoring** because integration-related failures and merchant-side processing issues can increase duplicate debit and failed reversal cases.
 
-## Author
+2. **Duplicate debit and failed reversal cases should be prioritised** because they directly impact customers and increase refund exposure.
 
-Revathy Shanmugaraj
+3. **SLA breach rate should be monitored together with severity**, not only case count. A small number of high-value critical cases can create larger business risk than many low-value cases.
+
+4. **High-value transaction errors should have a daily review queue** because delayed resolution can increase customer complaints and financial exposure.
+
+5. **Root cause analysis can reduce repeat incidents** by identifying whether errors are caused by system timeout, beneficiary mismatch, reconciliation delay, third-party API failure, or branch processing mistakes.
+
+---
+
+## Business Recommendations
+
+| Area | Recommendation | Business Impact |
+|---|---|---|
+| SLA Management | Create a daily SLA breach watchlist for cases close to breach threshold | Reduces overdue cases and improves service performance |
+| Refund Exposure | Prioritise high-value failed reversal and duplicate debit cases | Reduces financial and reputational risk |
+| Channel Monitoring | Monitor API and POS error trends separately | Helps identify third-party and integration-related issues faster |
+| Root Cause Fix | Track top recurring root causes weekly | Supports permanent fixes instead of repeated manual resolution |
+| Customer Impact | Create priority queue for premium/high-value customers | Improves customer experience and complaint handling |
+| Reporting | Publish weekly operations dashboard to stakeholders | Improves visibility and accountability |
+
+---
+
+## This Project Demonstrates
+
+- SQL-based validation and KPI analysis
+- Python data cleaning and feature engineering
+- Power BI dashboard design
+- DAX measure documentation
+- SLA and operational risk reporting
+- Business insight writing
+- Recommendation-driven analytics
