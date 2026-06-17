@@ -96,13 +96,11 @@ Insights and Business Recommendations
 
 ## Power BI Dashboard
 
-> Important: The screenshots below should be exported from the actual Power BI `.pbix` file after connecting to the processed dataset. Do not use mocked dashboard images.
-
 ### 1. Executive Overview
 
-![Executive Overview](powerbi/screenshots/01_executive_overview.png)
+![Executive Overview](powerbi/screenshots/banking_error_detection_dashboard.png)
 
-Recommended visuals:
+visuals:
 
 - KPI cards: Total Transactions, Error Cases, Error Rate %, Refund Exposure, SLA Breach Rate %
 - Monthly transaction error trend
@@ -110,42 +108,6 @@ Recommended visuals:
 - Refund exposure by transaction type
 - Top root causes
 - Open vs closed cases
-
-### 2. Error Investigation
-
-![Error Investigation](powerbi/screenshots/02_error_investigation.png)
-
-Recommended visuals:
-
-- Error cases by root cause
-- Error amount by transaction type
-- Error cases by branch and region
-- Customer segment impacted
-- High-value error transaction table
-
-### 3. SLA and Operations Performance
-
-![SLA Operations](powerbi/screenshots/03_sla_operations.png)
-
-Recommended visuals:
-
-- SLA breach trend
-- Average resolution hours by channel
-- SLA breach by severity
-- Oldest pending cases
-- Operations backlog by team or branch
-
-### 4. Business Recommendation Page
-
-![Business Recommendations](powerbi/screenshots/04_business_recommendations.png)
-
-Recommended visuals:
-
-- Key insights summary
-- Priority actions
-- Owner / action / expected impact table
-
----
 
 ## Key Insights
 
@@ -183,3 +145,6 @@ Recommended visuals:
 - SLA and operational risk reporting
 - Business insight writing
 - Recommendation-driven analytics
+
+  ## Author
+  Revathy Shanmugaraj
