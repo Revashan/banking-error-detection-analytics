@@ -99,7 +99,7 @@ Four dashboard pages built for different operational audiences:
 | Operational SLA | Operations Managers | SLA breach rate by severity, resolution time distribution |
 | Customer & Segment Risk | Customer Support | Top affected customers, segment concentration |
 
-[![Banking Error Detection Dashboard](powerbi/screenshots/banking_error_detection-dashboard.png)
+[![Banking Error Detection Dashboard](powerbi/screenshots/banking_error_detection_dashboard.png)
 [![Banking Error Detection Dashboard](powerbi/screenshots/error_rate_by_channel.png)
 [![Banking Error Detection Dashboard](powerbi/screenshots/monthly_error_rate_trend.png)
 [![Banking Error Detection Dashboard](powerbi/screenshots/top_error_types.png)
